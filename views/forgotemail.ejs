@@ -1,0 +1,45 @@
+<%- include("./partials/header")%>
+<!--  -->
+<div
+  class="wrapper h-[100%] w-[100%] flex flex-col items-center justify-between"
+>
+  <div
+    class="logo w-[100%] h-[15vh] border-b border-white/25 flex items-center justify-center"
+  >
+    <a href="/profile">
+      <h1 class="text-5xl text-blue-400">
+        <i class="ri-svelte-line"></i>ShareShack
+      </h1></a
+    >
+  </div>
+  <div class="h-[85vh] w-[100%] flex items-center justify-center">
+    <form
+      action="/forgotemail"
+      method="post"
+      class="w-[25vmax] h-[25vmax] border border-white/25 rounded-lg flex flex-col items-center justify-center gap-[1.5vmax]"
+    >
+      <p class="text-[0.95vmax] text-white/75 mb-[0.5vmax]">
+        Enter the email address associated with your account <br />
+        and we'll send you a link to reset your password.
+      </p>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter Your Email!"
+        class="w-[90%] h-[12%] rounded-lg text-center text-black"
+        required
+      />
+      <button
+        class="w-[90%] h-[12%] rounded-lg bg-blue-400/80 border border-blue-400 hover:bg-blue-400 mb-[1vmax]"
+      >
+        Proceed
+      </button>
+      <p class="text-[0.95vmax] text-white/75 mt-[1vmax]">
+        Don't have an Account?
+        <a href="/register" class="text-blue-400 hover:underline">Sign up.</a>
+      </p>
+    </form>
+  </div>
+</div>
+<!--  -->
+<%- include("./partials/footer")%>

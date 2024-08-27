@@ -1,0 +1,49 @@
+<%- include("./partials/header")%>
+<!--  -->
+<div
+  class="container w-full h-full flex flex-col items-center justify-center gap-[2vmax]"
+>
+  <h1 class="text-6xl text-blue-400">
+    <i class="ri-svelte-line"></i>ShareShack
+  </h1>
+  <form
+    action="/register-user"
+    method="post"
+    class="w-[30%] h-[65%] border border-slate-400/80 flex flex-col items-center justify-evenly rounded-lg"
+  >
+    <input
+      type="text"
+      placeholder="Full Name"
+      name="fullname"
+      class="w-[90%] h-[9%] rounded-lg text-center text-black placeholder:text-gray-500"
+    />
+    <input
+      type="text"
+      placeholder="Username"
+      name="username"
+      class="w-[90%] h-[9%] rounded-lg text-center text-black placeholder:text-gray-500"
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      name="email"
+      class="w-[90%] h-[9%] rounded-lg text-center text-black placeholder:text-gray-500"
+    />
+    <input
+      type="number"
+      placeholder="Mobile Number"
+      name="mobnumber"
+      class="w-[90%] h-[9%] rounded-lg text-center text-black placeholder:text-gray-500"
+    />
+    <input
+      type="password"
+      placeholder="Create Password"
+      name="password"
+      class="w-[90%] h-[9%] rounded-lg text-center text-black placeholder:text-gray-500"
+    />
+    <button type="submit" class="w-[90%] h-[9%] border border-blue-400 bg-blue-400/80 rounded-lg">Register!</button>
+    <a href="/" class="text-[0.9vmax] underline text-gray-200 ml-[18vmax]">Go To Login.</a>
+  </form>
+</div>
+<!--  -->
+<%- include("./partials/footer")%>

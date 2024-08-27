@@ -1,0 +1,53 @@
+<%- include("./partials/header")%>
+<!--  -->
+<div class="w-full h-full flex items-center justify-evenly">
+  <div
+    class="left h-[90%] w-[50%] flex flex-col items-start justify-center gap-[1vmax]"
+  >
+    <h1 class="ml-[30%] text-6xl text-blue-400">
+      <i class="ri-svelte-line"></i>ShareShack
+    </h1>
+    <p class="ml-[32%] text-[1.2vmax] text-gray-300">
+      ShareShack helps you connect and <br />
+      share with people.
+    </p>
+  </div>
+  <div class="right h-[90%] w-[50%] flex items-center justify-center">
+    <form
+      action="/login-user"
+      method="post"
+      class="w-[50%] h-[60%] border border-slate-400/80 rounded-xl flex flex-col items-center justify-center gap-[1vmax]"
+    >
+      <input
+        type="text"
+        placeholder="Username"
+        class="w-[90%] h-[10%] text-center rounded-lg text-black placeholder:text-gray-500"
+        name="username"
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        class="w-[90%] h-[10%] text-center rounded-lg text-black placeholder:text-gray-500"
+      />
+      <button
+        type="submit"
+        class="border border-blue-400 w-[90%] h-[11%] rounded-lg text-white bg-blue-400/80 hover:bg-blue-400"
+      >
+        Log In!
+      </button>
+      <a
+        href="/forgot-email"
+        class="text-[0.9vmax] underline text-gray-400 hover:text-gray-200 ml-[12vmax]"
+        >Forgot Password?</a
+      >
+      <a
+        href="/register"
+        class="w-[90%] h-[12%] rounded-lg text-white bg-green-500/80 hover:bg-green-500 text-center flex items-center justify-center"
+        >Register New Account</a
+      >
+    </form>
+  </div>
+</div>
+<!--  -->
+<%- include("./partials/footer")%>

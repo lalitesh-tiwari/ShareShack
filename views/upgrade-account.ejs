@@ -1,0 +1,19 @@
+<%- include("./partials/header")%>
+<!--  -->
+<%- include("./partials/nav")%>
+<div class="wrapper h-[90vh] w-[100%] flex justify-center items-center">
+  <div
+    class="box p-[1vmax] w-[30%] h-[80%] flex flex-col items-start justify-evenly border border-gray-500 rounded-[1vmax]"
+  >
+    <img
+      class="w-[40%] h-[35%] mx-auto rounded-[50%] object-cover border border-gray-500"
+      src="/images/<%=user.profiledp%>"
+    />
+    <h2 class="text-[1.8vmax] font-semibold">Hey, <%= user.fullname %></h2>
+    <p class="w-[90%]">We are grateful to have you onboard. We have some premium locked features which can only be accessed by upgrading to premium membership.</p>
+    <h1>Get Premium Just At  <span class="text-[3vmax] ml-[0.5vmax]">₹999</span></h1>
+    <button class="border border-gray-500 w-[50%] h-[10%] mx-auto rounded-xl bg-blue-500 text-black">Upgrade To Premium ✨</button>
+  </div>
+</div>
+<!--  -->
+<%- include("./partials/footer")%>

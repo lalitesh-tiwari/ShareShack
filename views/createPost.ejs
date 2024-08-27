@@ -1,0 +1,39 @@
+<%- include("./partials/header")%>
+<!--  -->
+<%- include("./partials/nav")%>
+<div
+  class="wrapper h-[90vh] w-[100%] flex items-center justify-center"
+>
+  <div class="center w-[40%] h-[60%] border border-white/30 rounded-lg">
+    <form
+      action="/create-post"
+      method="post"
+      enctype="multipart/form-data"
+      class="w-[100%] h-[100%] flex flex-col items-center justify-evenly rounded-lg"
+    >
+      <h1 class="text-[2.5vmax] font-semibold">Create A Post!</h1>
+      <input type="text" name="caption" placeholder="What's Your Post About?" class="w-[60%] h-[15%] rounded-lg text-center text-black"/>
+      <input type="file" name="media" hidden class="post-input" />
+
+      <div class="post-btn  w-[60%] h-[12.5%] border border-blue-400  text-blue-400 bg-transparent rounded-lg flex items-center justify-center hover:bg-blue-400 hover:text-black cursor-pointer">
+        <h1 class="text-[1.1vmax]"><i class="ri-upload-2-fill"></i> Upload Post Media!</h1>
+      </div>
+
+      <button
+        class="w-[70%] h-[12.5%] border border-blue-400 bg-blue-400/80 rounded-lg text-black"
+      >
+        Upload Post!
+      </button>
+    </form>
+  </div>
+</div>
+<!--  -->
+<script>
+  const postinput = document.querySelector(".post-input");
+  const postbtn = document.querySelector(".post-btn");
+
+  postbtn.addEventListener("click", function () {
+    postinput.click();
+  });
+</script>
+<%- include("./partials/footer")%>

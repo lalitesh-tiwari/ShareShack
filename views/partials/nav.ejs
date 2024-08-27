@@ -1,0 +1,29 @@
+<nav
+  class="w-screen h-[10vh] flex items-center justify-between gap-x-10 font-semibold py-5 text-white border-b border-gray-500 px-[5vmax]"
+>
+  <h1 class="text-3xl text-blue-400">
+    <i class="ri-svelte-line"></i>ShareShack
+  </h1>
+  <p class="flex gap-[3vmax]">
+    <a href="/about"
+      ><span class="text-blue-400"><i class="ri-information-line"></i></span>
+      About</a
+    >
+    <% if(user){ %>
+    <a href="/profile"
+      ><span class="text-blue-400"><i class="ri-home-4-line"></i></span> Home</a
+    >
+    <a href="/mypost"
+      ><span class="text-blue-400"><i class="ri-image-circle-line"></i></span>
+      MyPosts</a
+    >
+    <a href="/logout"
+      >Logout
+      <span class="text-blue-400"><i class="ri-logout-box-r-line"></i></span
+    ></a>
+    <% } else { %>
+    <a href="/">Home</a>
+    <a href="/login">Login</a>
+    <% } %>
+  </p>
+</nav>

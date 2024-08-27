@@ -1,0 +1,110 @@
+<%- include("./partials/header")%>
+<!--  -->
+<%- include("./partials/nav")%>
+<div
+  class="wrapper h-[90vh] w-[100%] flex items-start justify-evenly pt-[3vmax]"
+>
+  <div
+    class="left w-[25%] h-[70%] border border-white/30 rounded-lg flex flex-col items-center justify-evenly"
+  >
+    <div class="w-[60%] h-[50%] border border-white rounded-[50%]">
+      <img
+        src="/images/<%=user.profiledp%>"
+        class="preview-image w-[100%] h-[100%] rounded-[50%] object-cover"
+      />
+    </div>
+    <form
+      action="/profile-dp/<%=user._id%>"
+      class="hidden dp-form"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <input type="file" class="dp-input" name="profiledp" />
+    </form>
+    <button
+      class="dp-btn border border-blue-400 bg-blue-400 text-black rounded-lg px-[1vmax] py-[0.5vmax] hover:bg-black hover:text-blue-400 duration-200"
+    >
+      <i class="ri-upload-2-line"></i> Add/Change Profile Picture
+    </button>
+    <a
+      href="/remove-dp/<%=user._id%>"
+      class="border border-blue-400 text-blue-400 rounded-lg px-[2vmax] py-[0.5vmax] hover:bg-blue-400 hover:text-black duration-200" 
+      ><i class="ri-close-large-line"></i> Remove Profile Picture</a
+    >
+  </div>
+  <div class="center w-[40%] h-[90%] border border-white/30 rounded-lg">
+    <form
+      action="/update-profile/<%=user._id%>"
+      method="post"
+      class="w-[100%] h-[100%] flex flex-col items-center justify-evenly rounded-lg"
+    >
+      <h1 class="text-[2.5vmax] font-semibold">Edit Profile Details</h1>
+      <input
+        type="text"
+        placeholder="Full Name"
+        name="fullname"
+        value="<%=user.fullname%>"
+        class="w-[70%] h-[8%] rounded-lg text-center text-black placeholder:text-gray-500"
+      />
+      <input
+        type="text"
+        placeholder="Username"
+        name="username"
+        value=" <%=user.username%>"
+        class="w-[70%] h-[8%] rounded-lg text-center text-black placeholder:text-gray-500"
+      />
+      <input
+        type="email"
+        placeholder="Email"
+        name="email"
+        value="<%=user.email%>"
+        class="w-[70%] h-[8%] rounded-lg text-center text-black placeholder:text-gray-500"
+      />
+      <input
+        type="number"
+        placeholder="Mobile Number"
+        name="mobnumber"
+        value="<%=user.mobnumber%>"
+        class="w-[70%] h-[8%] rounded-lg text-center text-black placeholder:text-gray-500"
+      />
+      <button
+        class="w-[70%] h-[8%] border border-blue-400 bg-blue-400/80 rounded-lg"
+      >
+        Update!
+      </button>
+    </form>
+  </div>
+  <div
+    class="right w-[20%] h-[25%] flex flex-col items-start justify-center gap-[0.7vmax] pl-[0.5vmax] pt-[3vmax]"
+  >
+    <a href="/delete-user/<%=user._id%>" class="border border-blue-400 text-blue-400 px-[1vmax] py-[0.5vmax] rounded-md hover:bg-blue-400 hover:text-black duration-200"
+      ><i class="ri-delete-bin-2-line"></i> Delete Your Account</a
+    >
+    <a
+      href="/reset-password/<%=user._id%>"
+      class="border border-blue-400 text-blue-400 px-[1vmax] py-[0.5vmax] rounded-md hover:bg-blue-400 hover:text-black duration-200"
+      ><i class="ri-lock-password-line"></i> Reset Your Password</a
+    >
+    <a href="/upgrade-account/<%=user._id%>" class="border border-blue-400 text-blue-400 px-[1vmax] py-[0.5vmax] rounded-md hover:bg-blue-400 hover:text-black duration-200"
+      ><i class="ri-svelte-line"></i> Upgrade To Premium</a
+    >
+    <a href="/logout" class="border border-blue-400 text-blue-400 px-[1vmax] py-[0.5vmax] rounded-md hover:bg-blue-400 hover:text-black duration-200"
+      ><i class="ri-logout-box-r-line"></i> Log Out</a
+    >
+  </div>
+</div>
+<!--  -->
+<script>
+  const dpinput = document.querySelector(".dp-input");
+  const dpform = document.querySelector(".dp-form");
+  const dpbtn = document.querySelector(".dp-btn");
+
+  dpbtn.addEventListener("click", function () {
+    dpinput.click();
+  });
+
+  dpinput.addEventListener("change", function () {
+    dpform.submit();
+  });
+</script>
+<%- include("./partials/footer")%>

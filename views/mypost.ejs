@@ -1,0 +1,73 @@
+<%- include("./partials/header")%>
+<!--  -->
+<%- include("./partials/nav")%>
+<div
+  class="wrapper h-[90vh] w-[100%] flex justify-center items-center gap-[4vmax] p-[4vmax] flex-wrap shrink-0 overflow-auto"
+>
+  <% user.posts.forEach((post)=>{ %>
+  <div class="card w-[25%] h-[100%] border border-gray-600 rounded-lg">
+    <div
+      class="top w-[100%] h-[14%] pl-[0.5vmax] flex items-center justify-between"
+    >
+      <div class="left w-[20%] h-[100%] rounded-[50%] pt-[0.2vmax]">
+        <img
+          src="/images/<%= user.profiledp %>"
+          class="w-[100%] h-[100%] object-cover rounded-[50%] border border-white/40"
+        />
+      </div>
+      <div
+        class="right w-[78%] h-[100%] flex flex-col items-start justify-evenly pl-[0.5vmax]"
+      >
+        <p class="text-[1.2vmax]">@<%=user.username%></p>
+        <p class="text-[0.8vmax] text-gray-300">
+          <%=post.createdAt.toLocaleTimeString()%> |
+          <%=post.createdAt.toLocaleDateString()%>
+        </p>
+      </div>
+    </div>
+    <div class="caption w-[100%] h-[6%] pl-[0.5vmax] flex items-center">
+      <p class="text-[0.8vmax] text-gray-300"><%=post.caption%></p>
+    </div>
+    <div class="media w-[100%] h-[70%]">
+      <img
+        src="/images/<%=post.media%>"
+        class="w-[100%] h-[100%] object-cover"
+      />
+    </div>
+    <div
+      class="bottom w-[100%] h-[10%] flex items-center justify-between px-[1vmax]"
+    >
+      <div class="flex items-center gap-[0.5vmax]">
+        <span class="text-[1.2vmax]"> <%= post.likes.length %> </span>
+        <p class="text-[1.6vmax]">
+          <% if(post.likes.includes(user._id)) { %>
+          <i class="text-blue-400 ri-thumb-up-fill"></i>
+          <% } else { %>
+          <i class="ri-thumb-up-line"></i>
+          <% } %>
+        </p>
+        <span class="text-[1.2vmax]"> <%= post.unlikes.length %> </span>
+        <p class="text-[1.6vmax]">
+          <% if(post.unlikes.includes(user._id)) { %>
+          <i class="text-blue-400 ri-thumb-down-fill"></i>
+          <% } else { %>
+          <i class="ri-thumb-down-line"></i>
+          <% } %>
+        </p>
+      </div>
+      <div class="flex items-center justify-center gap-[0.5vmax]">
+        <a
+          href="/update-post/<%=post._id%>"
+          class="text-[1.7vmax] text-blue-400"
+          ><i class="ri-image-edit-fill"></i
+        ></a>
+        <a href="/delete-post/<%=post._id%>" class="text-[1.7vmax] text-red-600"
+          ><i class="ri-delete-bin-2-line"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<!--  -->
+<%- include("./partials/footer")%>
